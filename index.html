@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<!-- you know who I am -->
+<html lang="en" dir="ltr">
+ <head>
+    <meta charset="utf-8">
+    <title>SKY/FLY</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    <!-- StyleSheet -->
+    <link rel="stylesheet" media="(min-width: 140px)" href="{{url_for('static',filename='style_pc.css')}}">
+    <link rel="stylesheet" media="(max-width: 140px)" href="{{url_for('static',filename='style_mobile.css')}}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(window).scroll(function (){
+	   $(".marker-animation").each(function(){
+	  var position = $(this).offset().top; //ページの一番上から要素までの距離を取得
+	  var scroll = $(window).scrollTop(); //スクロールの位置を取得
+	  var windowHeight = $(window).height(); //ウインドウの高さを取得
+	  if (scroll > position - windowHeight){ //スクロール位置が要素の位置を過ぎたとき
+	    $(this).addClass('active'); //クラス「active」を与える
+	  }
+	});
+});
+</script>
+  <style>
+@media print, screen  and (min-width: 140px) {
+    body{
+    background-image:url("https://www.pngitem.com/pimgs/m/96-962613_design-illustration-blue-paint-splatter-png-transparent-png.png");
+/*    background-image:url("https://www.abe-arch.com/wp-content/uploads/2017/09/ICT%EF%BC%88%E6%83%85%E5%A0%B1%E9%80%9A%E4%BF%A1%E6%8A%80%E8%A1%93%EF%BC%89%E3%81%A8AI%EF%BC%88%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%EF%BC%89.jpg");*/
+
+   background-repeat: no-repeat;
+    background-position: center center;
+    background-size:100% auto;/*この場合は高さが自動設定*/
+    background-size:auto 100%;/*この場合は幅が自動設定*/
+    background-size: cover;*/
+    }
+    p{color: black;}
+/*    p {text-shadow:5px 5px 3px black;} */
+    .link {/*text-shadow: 4px 4px 10px black; */
+      position:fixed;
+      top: 20px; left: 20px;
+       color:blue;
+      font-size: 30px;}
+    .link2 {/*text-shadow: 4px 4px 10px black;*/
+      position: absolute;
+      position: fixed;
+      top: 25%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+       color:white;} 　
+    .link4 {/*text-shadow: 4px 4px 10px black;*/
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+       color:white;}
+    .link3 {color:black;}
+    .fly{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+
+    }
+
+    .botan{height:60px;
+
+            position: fixed;
+            bottom: 70px; right: 20px;
+
+           font-size: 30px;
+           /*opacity:0.3;*/
+           background-color: rgba( 100, 100, 220, 0.55 );
+         }
+    .botan2{
+            color:white;
+            /*transform: translate(-50%, -50%);*/
+            /*opacity:0.3;*/
+             background-color: rgba( 100, 100, 220, 0.55 );
+            }
+    .name{color:black;
+          font-size:25px;
+          }
+    .requestlist{
+          color:black;
+          font-size:25px;
+    }
+    .newrequest{
+          color:red;
+          font-size:25px;
+    }
+    .title{
+      text-align:center;
+      font-size: 30px;
+      color: black;
+    }
+.youso{
+  background-color: rgba(51, 153, 255, 0.55 );
+  color: black;
+}
+  .title1{
+      color:black;
+  }
+  .website{
+    font-size:50px;
+  }
+  .subtitle{
+    font-size:40px;
+    color:white;
+  }
+  .subtitle2{
+    font-size:30px;
+    color:white;
+  }
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+
+.background {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Default Styling */
+body {
+  font-family: 'Merienda', cursive;
+  background: #000;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.box {
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.7 );
+}
+a {
+  color: #0bd;
+}
+
+
+/*マーカーアニメーション*/
+
+.marker-animation.active{
+    background-position: -100% .5em;
+}
+
+.marker-animation {
+
+    background-image: -webkit-linear-gradient(left, transparent 50%, rgb(255, 0, 102) 50%);
+    background-image: -moz-linear-gradient(left, transparent 50%, rgb(255, 0, 102) 50%);
+    background-image: -ms-linear-gradient(left, transparent 50%, rgb(255, 0, 102) 50%);
+    background-image: -o-linear-gradient(left, transparent 50%, rgb(255, 0, 102) 50%);
+    background-image: linear-gradient(left, transparent 50%, rgb(255, 0, 102) 50%);
+
+    /*background:linear-gradient(transparent 60%, #FF0066 60%);*/
+    background-repeat: repeat-x;
+    background-size: 200% .8em;
+    background-position: 0 .5em;
+    transition: all 2s ease;
+    font-weight: bold;
+}
+
+
+
+
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+     }
+
+}
+
+
+
+@media screen and (max-width: 140px) {
+  body{
+
+  background-image:url("https://lh3.googleusercontent.com/proxy/4CWEob9ZuuTCmFHikUabqHRb_PdUtFWMg1h-Shz1MoTaPCAQiJLt0rxnzBAuaMPMCNF89G_BCAyLByu5GxOm46yHz0b7KlmjCFpM1ZMLoI6rI9pEpfwfvTistYOEtVMiQn5P2SnrOoNXE0GVUb8-ld7jx0ny1OfVtQ");
+/*  background-image:url("https://www.abe-arch.com/wp-content/uploads/2017/09/ICT%EF%BC%88%E6%83%85%E5%A0%B1%E9%80%9A%E4%BF%A1%E6%8A%80%E8%A1%93%EF%BC%89%E3%81%A8AI%EF%BC%88%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%EF%BC%89.jpg");*/
+/* background-repeat: no-repeat;
+/*  background-position: center center;
+  background-size:100% auto;/*この場合は高さが自動設定*/
+ background-size:auto 100%;/*この場合は幅が自動設定*/
+ background-size: cover;
+  }
+  h1{text-align:center;
+    text-shadow:8px 8px 5px black;}
+  p{color:white;
+    text-shadow:8px 8px 5px black;}
+    .link {/*text-shadow: 4px 4px 10px black; */
+      position: fixed;
+      bottom: 20px; right: 20px;
+       color:white;
+      font-size: 20px;}
+    .link2 {/*text-shadow: 4px 4px 10px black;*/
+      position: absolute;
+       color:white;
+        font-size: 30px;} 　
+    .link4 {/*text-shadow: 4px 4px 10px black;*/
+
+       color:white;}
+    .link3 {color:black;}
+
+    .botan{height:150px;
+
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+           font-size: 30px;
+           /*opacity:0.3;*/
+           background-color: rgba( 100, 100, 220, 0.55 );
+
+         }
+      .botan2{
+        color: black;
+        /*transform: translate(-50%, -50%);*/
+        /*opacity:0.3;*/
+         background-color: rgba( 100, 100, 220, 0.55 );
+              }
+    .mozi{color:white;
+          font-size: 20px;
+          position: fixed;
+          bottom: 55px;;
+          }
+
+
+  canvas {
+              position: absolute;
+              top: 0;
+              left: 0;
+          }
+
+    }
+  </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="box">
+        <p class="display-4">Voice Recognition Assistant</p>
+        <h1 class="display-2 title1">-SKY/FLY-</h1>
+        <p class="website">Main Website</p>
+      </div>
+      </div>
+
+    <p class="pt-5"></p>
+    <p class="pt-5"></p>
+    <h2 class="subtitle text-light text-center pt-5"><span class="marker-animation">音声認識アシスタントSKY・FLYのメインページへようこそ。</span></h2>
+
+    <p class="pt-5"></p>
+    <p class="pt-5"></p>
+    <p class="subtitle text-light text-center pt-5"><span class="marker-animation">SKYのダウンロード（Windows）</span></p>
+    <p class="subtitle text-light text-center pt-2"><a href="">-Download SKY for Windows-</a></p>
+    <p class="pt-5"></p>
+    <p class="subtitle text-light text-center pt-5"><span class="marker-animation">-FLY-</span></p>
+    <div class="row pt-1">
+    <p class="col-2 mt-5"></p>
+    <p class="subtitle text-light text-center col-8">FLYはSKYのWEBバージョンです。
+    SKYの機能のうちブラウザ制御（検索など）のみ可能です。
+      →<a href="https://hirokazuniimoto.github.io/FLY-japanese-/">日本語版サイト</a>　→<a href="https://hirokazuniimoto.github.io/FLY-English-/">英語版サイト</a></p>
+    <p class="col-2 "></p>
+    </div>
+
+    <p class="pt-5"></p>
+    <p class="pt-5"></p>
+    <p class="subtitle text-light text-center pt-3"><span class="marker-animation">-使い方-</span></p>
+    <div class="row pt-2">
+    <p class="col-2 mt-5"></p>
+    <p class="subtitle text-light text-center pt-5 col-8">コンピュータの様々な機能を音声でコントロールできる音声認識アシスタントです。
+      Googlechrome、Firefoxブラウザで動作します。反応する言葉は下記の通りです（１）。また設定により、自分で必要な命令をつくり、好きな
+    ページを開くこともできます（２）。</p>
+    <p class="col-2"></p>
+    </div>
+
+
+    <p class="pt-5"></p>
+    <div class="row pt-5">
+    <p class="col-2 mt-5"></p>
+    <div class="card col-8 pt-5 youso">
+    <div class="card-header">
+    <h1 class="card-title subtitle text-center"><span class="marker-animation">（１）反応する指示、命令-デフォルト</span></h1>
+    </div>
+    <div class="card-body">
+    <p class="subtitle2 text-center pt-3">「～で検索」「～を検索」「～を調べて」→ キーワードをグーグルで検索します。</p>
+    <p class="subtitle2 text-center pt-3">「YouTubeで～と（を）検索」→キーワードをYouTubeで検索します。</p>
+    <p class="subtitle2 text-center pt-3">「～とは」→キーワードの情報を音声で返します。</p>
+    <p class="subtitle2 text-center pt-3">「YouTubeを開いて」→YouTubを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「Googleを開いて」→Googleを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「Twitterを開いて」→Twitterを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「Gmailを開いて」→Gmailを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「翻訳を開いて」→Google翻訳を開きます。</p>
+    <p class="subtitle2 text-center pt-3">「マルチエンジンを開いて」→マルチサーチエンジンを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「ニュースを開いて」→yahooニュースを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「プログラム起動」→ページを更新します。</p>
+    <p class="subtitle2 text-center pt-3">「プログラム終了」→ページを閉じます。</p>
+    <p class="subtitle2 text-center pt-3">「Wordを開いて」→MicrosoftのWordを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「コマンドプロンプトを開いて」→コマンドプロンプトを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「メモ帳を開いて」→メモ帳を開きます。</p>
+    <p class="subtitle2 text-center pt-3">「今日の天気は？」→今日の天気を音声で返します。地域は設定で変更可能。</p>
+    <p class="subtitle2 text-center pt-3">「ウィンドウを閉じて」→アクティブなウィンドウを閉じます。</p>
+    <p class="subtitle2 text-center pt-3">「テキストコピー」→選択されたテキストをコピーします。</p>
+    <p class="subtitle2 text-center pt-3">「貼り付け」→コピーされているテキストを貼り付けます。</p>
+    <p class="subtitle2 text-center pt-3">「ドキュメントを開いて」→ドキュメントを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「コンピュータシャットダウン」→シャットダウンします。</p>
+    <p class="subtitle2 text-center pt-3">「コンピュータ再起動」→再起動します。</p>
+    <p class="subtitle2 text-center pt-3">「一時停止」→一時的にFLY-japanese-のページを開きます。「一時停止解除」で戻ります。</p>
+    <p class="subtitle2 text-center pt-3">「設定を開いて」→Windowsの設定を開きます。</p>
+    <p class="subtitle2 text-center pt-3">「コントロールパネルを開いて」→Windowsのコントロールパネルを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「フォルダ作成」→ドキュメントに新しいフォルダを作ります。フォルダ名は［madebySKY_日付］です。</p>
+    <p class="subtitle2 text-center pt-3">「すべて選択して」→すべて選択します。</p>
+    <p class="subtitle2 text-center pt-3">「スクリーンショット」→スクリーンショットを撮影します。</p>
+    <p class="subtitle2 text-center pt-3">「URLをコピー」→Googlechromeで今開いているページのURLをコピーします。</p>
+    <p class="subtitle2 text-center pt-3">「ｎページ進んで」→Googlechromeで今開いているページからｎページ進みます。</p>
+    <p class="subtitle2 text-center pt-3">「ｎページ戻って」→Googlechromeで今開いているページからｎページ戻ります。</p>
+    <p class="subtitle2 text-center pt-3">「ブックマークして」→Googlechromeで今開いているページをブックマークします。</p>
+    <p class="subtitle2 text-center pt-3">「ブックマーク一覧」→Googlechromeでブックマーク一覧を表示します。</p>
+    <p class="subtitle2 text-center pt-3">「上（下）にスクロールして」→上（下）にスクロールします。</p>
+    <p class="subtitle2 text-center pt-3">「デベロッパーツールを開いて」→デベロッパーツールを開きます。</p>
+    <p class="subtitle2 text-center pt-3">「～と書いて」「～、書き込み」→音声認識した文章をカーソルの箇所にそのまま書き込みます。</p>
+    <p class="subtitle2 text-center pt-3">「エンターキーをｎ回押して」→エンターキーをｎ回押します。</p>
+    <p class="subtitle2 text-center pt-3">「上（下）ｎ行をコピー」→カーソルの場所から上（下）ｎ行のテキストをコピーします。</p>
+    <p class="subtitle2 text-center pt-3">「pythonを起動」→（もし存在すれば）pythonを起動します。</p>
+    <p class="subtitle2 text-center pt-3">「SKY、～」→人工知能が適当な言葉を返します。精度はあまり高くありません。</p>
+    <p class="subtitle2 text-center pt-3">「～の画像を表示」→人工知能が認識した文章にあう画像を集めます。精度はあまり高くありません。</p>
+    <p class="subtitle2 text-center pt-3">「～についての情報を集めて」→キーワードの情報をネット上から集めて一つのページにまとめます。</p>
+    <p class="subtitle2 text-center pt-3">「仮想デスクトップを作成」→新しい仮想デスクトップを作成します。</p>
+    <p class="subtitle2 text-center pt-3">「デスクトップ一覧」→デスクトップ一覧を表示します。</p>
+    <p class="subtitle2 text-center pt-3">「半角（全角）にして」→半角（全角）を切り替えます。</p>
+    <p class="subtitle2 text-center pt-3">「音量を上げ（下げ）て」→音量を１０上げ（下げ）ます。</p>
+    <p class="subtitle2 text-center pt-3">「ミュート（ミュート解除）」→ミュート（ミュート解除）します。</p>
+    </div>
+    </div>
+    <p class="col-2"></p>
+    </div>
+
+    <p class="pt-5"></p>
+    <div class="row pt-5">
+    <p class="col-2 mt-5"></p>
+    <div class="card col-8 pt-5 youso">
+    <div class="card-header">
+    <h1 class="card-title subtitle text-center"><span class="marker-animation">（２）指示、命令を追加</span></h1>
+    </div>
+    <div class="card-body">
+    <p class="subtitle2 text-center pt-3">上記の命令に加えて自分で命令を追加することもできます。やり方は設定画面から「Request」の場所に命令、
+    「URL」の場所に開きたいURLを指定して保存ボタンを押すだけです。追加命令一覧に追加した指示、命令が表示されます。デフォルトの命令と同じものや含むものは使えないので注意してください。</p>
+    <p class="pt-3"></p>
+    </div>
+    <img src="skysettingexample.png" class="card-img pb-5" alt="設定の例">
+    </div>
+    <p class="col-2"></p>
+    </div>
+
+    <p class="pt-4"></p>
+    <div class="row pt-5">
+    <p class="col-2"></p>
+    <a href="https://hirokazuniimoto.github.io/portfolio/" class="text-center col-8 subtitle"><span class="marker-animation">製作者のホームページ</span></a>
+    <p class="col-2"></p>
+    </div>
+
+    <p class="pt-4"></p>
+    <p class="pt-4"></p>
+
+
+    <canvas class="background"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+
+    <script type="text/javascript">
+      var particles = Particles.init({
+      selector: '.background',
+      sizeVariations: 10,
+      color: ['#00bbdd', '#404B69', '#DBEDF3'],
+      connectParticles: true
+    });
+
+    </script>
+
+
+
+<!--
+    <div class="container">
+    <p class="pt-3 hukutitle">FLY based Assistant in Python</p>
+    <h1 class="display-1 text-center pt-3">-SKY-</h1>
+
+    <h1 class="title text-center pt-5"><span>地域を変更（天気などで使います）</span></h1>
+
+    <h1 class="title text-center pt-4"><span>命令を追加</span></h1>
+
+    <div class="card  mt-5 youso">
+    <div class="card-header">
+    <h1 class="card-title title"><span>追加命令一覧</span></h1>
+    </div>
+    <div class="card-body">
+    <div id="mydata_out2" class="pt- newrequest"></div>
+    <div id="mydata_out" class="pt-2 requestlist"></div>
+    </div>
+  </div>
+
+    <p class="pt-4"></p>
+    <p class="mt-4 title  text-center" ><a href="http://localhost:5000/">完了</a></p>
+    <p class="pt-5"></p>
+
+-->
+
+  </body>
+</html>
